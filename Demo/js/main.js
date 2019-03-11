@@ -63,7 +63,7 @@ function Export(text){
   }).catch(function(reason){
         // alert("The alert was dismissed by the user: "+reason);
   });
-  
+
 }
 
 
@@ -117,7 +117,7 @@ var keyCode = e.keyCode;
 
 function Examples(){
   swal({
-  title: 'Select Ukraine',
+  title: 'Select an exmaplr',
   input: 'select',
   inputOptions: {
     'GRM': 'Motor Grabber With Motor Model',
@@ -170,7 +170,7 @@ function Load(){
       }).catch(function(reason){
     });}
   });
-  
+
 }
 function setScale(sc){
 viewer.gl.translate(0,0,10)
@@ -232,7 +232,8 @@ function Plane(w, h, z, pos=[0, 0, 0]){
 
 
 
-var grabberWithMotorExample = "//Motor Grabber + Motor\n"+"var thickness = 20; //Global variable of thickness detail\nvar appendinx = Plane(25, 20, thickness, [75, 0, 0]) //Appendix to fix the a motor in the the detail\nvar base = Disk(50, 80, thickness, [0,0,0]).add(appendinx) //Rounded part of the detail\nvar quoter = Plane(100, 100, thickness, [100, 0, -100]) //Plane to trim the previous part\nvar long = Plane(200, thickness, thickness, [-70, 0, -65]) //Botton base of the detail\n\nvar drill_size = 4 //Global variable of diameter of a screw\nvar c1 = Cylinder([85, -thickness/2, 90], [85, -thickness/2, -90], drill_size) //First drill cylinder\nvar c2 = Cylinder([85, thickness/2, 90], [85, thickness/2, -90], drill_size) //Second drill cylinder\n\nvar motor = Cylinder([0, -40, 0], [0, 40, 0], 50-6).add(Cylinder([0, 40, -20], [0, 80, -20], 8)).add(Plane(200,200,10,[0, 60, 0]).diff(Sphere([0, 60, -20], 100))) //Simple Motor Model\n\nreturn base.add(quoter).cut(quoter).add(long).cut(c1).cut(c2).add(motor) //Final operations"
+var grabberWithMotorExample = "//Motor Grabber + Motor\n"+
+"var thickness = 20; //Global variable of thickness detail\nvar appendinx = Plane(25, 20, thickness, [75, 0, 0]) //Appendix to fix the a motor in the the detail\nvar base = Disk(50, 80, thickness, [0,0,0]).add(appendinx) //Rounded part of the detail\nvar quoter = Plane(100, 100, thickness, [100, 0, -100]) //Plane to trim the previous part\nvar long = Plane(200, thickness, thickness, [-70, 0, -65]) //Botton base of the detail\n\nvar drill_size = 4 //Global variable of diameter of a screw\nvar c1 = Cylinder([85, -thickness/2, 90], [85, -thickness/2, -90], drill_size) //First drill cylinder\nvar c2 = Cylinder([85, thickness/2, 90], [85, thickness/2, -90], drill_size) //Second drill cylinder\n\nvar motor = Cylinder([0, -40, 0], [0, 40, 0], 50-6).add(Cylinder([0, 40, -20], [0, 80, -20], 8)).add(Plane(200,200,10,[0, 60, 0]).diff(Sphere([0, 60, -20], 100))) //Simple Motor Model\n\nreturn base.add(quoter).cut(quoter).add(long).cut(c1).cut(c2).add(motor) //Final operations"
 var grabberShort = "//Motor Grabber (Maximum Short & Universal)\nvar thickness = 20; //Global variable of thickness detail\nvar appendinx = Plane(25, 20, thickness, [75, 0, 0]) //Appendix to fix the a motor in the the detail\nvar base = Disk(50, 80, thickness, [0,0,0]).add(appendinx) //Rounded part of the detail\nvar quoter = Plane(100, 100, thickness, [100, 0, -100]) //Plane to trim the previous part\nvar long = Plane(200, thickness, thickness, [-70, 0, -65]) //Botton base of the detail\n\nvar drill_size = 4 //Global variable of diameter of a screw\nvar c1 = Cylinder([85, -thickness/2, 30], [85, -thickness/2, -30], drill_size) //First drill cylinder\nvar c2 = Cylinder([85, thickness/2, 30], [85, thickness/2, -30], drill_size) //Second drill cylinder\nreturn base.add(quoter).cut(quoter).add(long).cut(c1).cut(c2) //Final operations"
 var simpleCSGobject = "//Simple CSG object\n//You can see more about this figure on this wikipedia page https://goo.gl/5wEGTR\n\nvar base_cube = Cube(100)\n\nvar limit_sphere = Sphere([0,0,0], 135)\n\nvar X = Cylinder([-100, 0, 0], [100, 0, 0], 70)\nvar Y = Cylinder([0, -100, 0], [0, 100, 0], 70)\nvar Z = Cylinder([0, 0, -100], [0, 0, 100], 70)\n\nvar insphere = Sphere([0,0,0], 80);\n\n//Just for a beautiful view ;)\n//Color scheme: RedGreenBlue\nX.color(0, 255, 0) \nY.color(0, 255, 0)\nZ.color(0, 255, 0)\nlimit_sphere.color(0, 0, 255)\nbase_cube.color(255, 0, 0)\ninsphere.color(255, 0, 255)\n\nreturn base_cube.cut(X).cut(Y).cut(Z).diff(limit_sphere).add(insphere)"
 window.onbeforeunload = function ()
