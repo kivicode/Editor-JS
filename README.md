@@ -1,5 +1,5 @@
-#Editor.js
-** Basic Objects
+## Editor.js
+# Basic Objects
 * Draw a Cube with an optional parameter POSITION *default is [0, 0, 0]* and the required parameter RADIUS
 
   ```javascript
